@@ -26,7 +26,6 @@ sudo add-apt-repository "deb [arch=amd64] https://packages.confluent.io/deb/7.4 
 sudo add-apt-repository "deb https://packages.confluent.io/clients/deb $(lsb_release -cs) main"
 
 sudo apt-get update && sudo apt-get install confluent-platform
-
 ```
 
 ## Before Starting the kafka Connect
@@ -38,7 +37,6 @@ cd /lib/systemd/system
 vim confluent-kafka-connect.service
 
 ExecStart=/usr/bin/connect-distributed /etc/kafka/connect-distributed.properties
-
 ```
 
 ## To start the kafka Connect and check status
@@ -60,7 +58,6 @@ curl http://68.183.92.186:8083/connectors
 scp -i ./keygen ./mTLS/client.keystore.jks root@68.183.92.186:/macbookfile
 
 scp -i ./keygen ./mTLS/truststore.jks root@68.183.92.186:/macbookfile
-
 ```
 
 
@@ -116,7 +113,6 @@ confluent.metadata.bootstrap.server.urls=server:port
 # Credentials to use when communicating with the MDS
 confluent.metadata.basic.auth.user.info=username:password
 confluent.metadata.http.auth.credentials.provider=BASIC
-
 ```
 
 ## Change permission to Write Logs
@@ -150,7 +146,6 @@ confluent login --url ec2-34-201-67-56.compute-1.amazonaws.com:8090 --ca-cert-pa
 ## Get the Cluster ID
 ```
 curl https://ec2-34-201-67-56.compute-1.amazonaws.com:8090/kafka/v3/clusters -k -u username:password
-
 ```
 
 ## Confluent CLI Role-Bindings
